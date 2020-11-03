@@ -1,0 +1,13 @@
+[Unit]
+Description=node_exporter
+Documentation=https://prometheus.io/
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/blackbox_exporter/blackbox_exporter --config.file=/usr/local/blackbox_exporter/blackbox.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
